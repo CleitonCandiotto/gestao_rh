@@ -1,6 +1,8 @@
+from django.views.generic.list import ListView
 from django.http import HttpResponse
-from django.shortcuts import render
+from .models import Funcionario
 
 
-def home(request):
-    return HttpResponse('ola')
+class FuncionariosListView(ListView):
+    model = Funcionario
+    

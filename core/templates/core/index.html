@@ -6,7 +6,9 @@
         <a href="{% url 'home' %}">Home</a>
         </div>
         <div class="col">
-        Olá {{ usuario.funcionario.nome }}
+            Olá {{ usuario.funcionario.nome }}
+            <a href="{% url 'list_funcionarios' %}">Gerenciar Funcionarios</a>
+        
         </div>
         <div class="col">
             {% if usuario.funcionario.empresa %}
