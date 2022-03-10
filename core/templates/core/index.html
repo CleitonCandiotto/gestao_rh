@@ -6,10 +6,18 @@
         <a href="{% url 'home' %}">Home</a>
         </div>
         <div class="col">
-        <a href="{% url 'login' %}">Login</a>
+        Olá {{ usuario.funcionario.nome }}
         </div>
         <div class="col">
+            {% if usuario.funcionario.empresa %}
+                Empresa "{{ usuario.funcionario.empresa }}"
+                <a href="{% url 'edit_empresa' usuario.funcionario.empresa.id%}">Editar</a>
+            {% else %}
+                <a href="{% url 'add_empresa' %}">Criar Emprersa</a>
+            {% endif %}
+        </div>         <div class="col">
         <a href="{% url 'logout' %}">Logout</a>
         </div>
+
     </div>
 {% endblock %}
