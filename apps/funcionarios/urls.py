@@ -1,6 +1,11 @@
 from unicodedata import name
 from django.urls import path
-from .views import FuncionarioUpdateView, FuncionariosListView, FuncionarioDeleteView, FuncionarioCreateView
+from .views import (
+    FuncionarioUpdateView, 
+    FuncionariosListView, 
+    FuncionarioDeleteView, 
+    FuncionarioCreateView
+    )
 
 
 urlpatterns = [
