@@ -4,7 +4,9 @@
     Banco de Horas <br>
     {% for horas in object_list %}
         {{ horas }}
+        <a href="{% url 'edit_hora_extra' horas.id %}" class="btn btn-warning">Editar</a>
         <br>
+        
     {% endfor %}
         <a href="{% url 'create_funcionario' %}" class="btn btn-info" >Novo</a>
     {% endblock %}
