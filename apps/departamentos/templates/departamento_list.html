@@ -4,7 +4,9 @@
     List <br>
     {% for departamento in object_list %}
         {{ departamento }}
-        <br><br>
+        <a href="{% url 'edit_departamento' departamento.id %}"><button class="btn btn-warning">Editar</button></a>
+        <a href="{% url 'delete_departamento' departamento.id %}"><button class="btn btn-danger">Deletar</button></a>
+        <br>
     {% endfor %}
-        <a href="#" class="btn btn-info" >Novo</a>
+        <a href="{% url 'create_departamento' %}" class="btn btn-info" >Novo</a>
     {% endblock %}
