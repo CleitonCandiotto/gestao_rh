@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block main %} 
+    Banco de Horas <br>
+    {% for horas in object_list %}
+        {{ horas }}
+        <br>
+    {% endfor %}
+        <a href="{% url 'create_funcionario' %}" class="btn btn-info" >Novo</a>
+    {% endblock %}
