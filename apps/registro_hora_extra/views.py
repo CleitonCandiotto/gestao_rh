@@ -19,8 +19,17 @@ class HoraExtraListView(ListView):
 
 class HoraExtraEditView(UpdateView):
     model = RegistroHoraExtra
-    fields = ['motivo', 'funcionario', 'horas']
+    form_class = RegistroHoraExtraForm
     template_name = 'hora_extra_edit.html'
+
+
+    def get_form_kwargs(self):
+        '''
+        Func para pegar o user e passar para o formulario para filtrar pela empresa
+        '''
+        kwargs = super(HoraExtraEditView, self).get_form_kwargs()
+        kwargs.update({'user': self.request.user})
+        return kwargs
 
 
 class HoraExtraDeleteView(DeleteView):
@@ -42,3 +51,4 @@ class HoraExtraCreateView(CreateView):
         kwargs = super(HoraExtraCreateView, self).get_form_kwargs()
         kwargs.update({'user': self.request.user})
         return kwargs
+        
