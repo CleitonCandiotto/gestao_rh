@@ -5,8 +5,12 @@
     {% for horas in object_list %}
         {{ horas }}
         <a href="{% url 'edit_hora_extra' horas.id %}" class="btn btn-warning">Editar</a>
-        <br>
-        
+        <a href="{% url 'delete_hora_extra' horas.id %}" class="btn btn-danger">Deletar</a>
+        <br>   
     {% endfor %}
-        <a href="{% url 'create_funcionario' %}" class="btn btn-info" >Novo</a>
+
+    {% if not object_list %}
+        <p>Não existem registros de hora extra de banco de dados</p>
+    {% endif %}
+        <a href="{% url 'create_hora_extra' %}" class="btn btn-info" >Novo</a>
     {% endblock %}
