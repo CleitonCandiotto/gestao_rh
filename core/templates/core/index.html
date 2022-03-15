@@ -3,9 +3,6 @@
 {% block main %}
     <div class="row">
         <div class="col">
-        <a href="{% url 'home' %}">Home</a>
-        </div>
-        <div class="col">
             Olá {{ usuario.funcionario.nome }}
             <a href="{% url 'list_funcionarios' %}">Gerenciar Funcionarios</a>
             <a href="{% url 'list_departamentos' %}">Gerenciar Departamentos</a><br>

@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic.list import ListView
 from .models import RegistroHoraExtra
+from .forms import RegistroHoraExtraForm
 from django.views.generic.edit import UpdateView, DeleteView, CreateView
 
 
@@ -30,5 +31,14 @@ class HoraExtraDeleteView(DeleteView):
 
 class HoraExtraCreateView(CreateView):
     model = RegistroHoraExtra
-    fields = ['motivo', 'funcionario', 'horas']
+    form_class = RegistroHoraExtraForm
     template_name = 'hora_extra_create.html'
+
+
+    def get_form_kwargs(self):
+        '''
+        Func para pegar o user e passar para o formulario para filtrar pela empresa
+        '''
+        kwargs = super(HoraExtraCreateView, self).get_form_kwargs()
+        kwargs.update({'user': self.request.user})
+        return kwargs
