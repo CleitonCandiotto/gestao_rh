@@ -153,3 +153,4 @@ cython_debug/
 
 #aws
 gestao_rh.pem
+gestao_rh_aws.pem
