@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 from apps.departamentos.models import Departamento
 from apps.empresas.models import Empresa
 from django.urls import reverse
-
+from django.db.models import Sum
 
 
 
@@ -20,3 +20,10 @@ class Funcionario(models.Model):
 
     def get_absolute_url(self):
         return reverse('list_funcionarios')
+
+
+    @property
+    def total_hora_extra(self):
+        total = self.registrohoraextra_set.all().aggregate(Sum('horas'))['horas__sum']
+        return total
+        

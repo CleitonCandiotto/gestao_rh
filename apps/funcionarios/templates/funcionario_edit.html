@@ -9,11 +9,21 @@
         <button type="submit">Salvar</button>
     </form>
     <br>
+    <h4>Documentos</h4>
+    {% for documento in object.documento_set.all %}
+        <ul>
+            <li><a href="{{ documento.documento.url }}" target="_blank">{{ documento }}</a></li> 
+        </ul>
+    {% endfor %}
     <a href="{% url 'create_documento' object.id %}" class="btn btn-info">Adicionar Documento</a>
     <br>
-
-    {% for documento in object.documento_set.all %}
-        <a href="{{ documento.documento.url }}" target="_blank">{{ documento }}</a> <br>
+    <br>
+    <h4>Registro Hora Extra</h4>
+    {% for registro in object.registrohoraextra_set.all %}
+        <ul>
+            <li>{{ registro.motivo }} | horas {{registro.horas}} </li>
+        </ul>
     {% endfor %}
+    <h5>Total Hora Extra: {{ object.total_hora_extra }}</h5>
 
 {% endblock %}
