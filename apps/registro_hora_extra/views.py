@@ -32,6 +32,25 @@ class HoraExtraEditView(UpdateView):
         return kwargs
 
 
+class HoraExtraBaseEditView(UpdateView):
+    model = RegistroHoraExtra
+    form_class = RegistroHoraExtraForm
+    template_name = 'hora_extra_edit.html'
+
+
+    def get_success_url(self):
+        return reverse_lazy('edit_hora_extra_base', args=[self.object.id] )
+
+
+    def get_form_kwargs(self):
+        '''
+        Func para pegar o user e passar para o formulario para filtrar pela empresa
+        '''
+        kwargs = super(HoraExtraBaseEditView, self).get_form_kwargs()
+        kwargs.update({'user': self.request.user})
+        return kwargs
+
+
 class HoraExtraDeleteView(DeleteView):
     model = RegistroHoraExtra
     template_name = 'hora_extra_delete.html'

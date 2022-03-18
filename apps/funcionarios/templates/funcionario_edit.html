@@ -21,7 +21,9 @@
     <h4>Registro Hora Extra</h4>
     {% for registro in object.registrohoraextra_set.all %}
         <ul>
-            <li>{{ registro.motivo }} | horas {{registro.horas}} </li>
+            <a href="{% url 'edit_hora_extra' registro.id %}">
+                <li>{{ registro.motivo }} | horas {{registro.horas}} </li>
+            </a>
         </ul>
     {% endfor %}
     <h5>Total Hora Extra: {{ object.total_hora_extra }}</h5>
