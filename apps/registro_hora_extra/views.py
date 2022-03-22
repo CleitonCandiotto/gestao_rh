@@ -8,7 +8,6 @@ from .forms import RegistroHoraExtraForm
 from django.views.generic.edit import UpdateView, DeleteView, CreateView
 
 
-
 class HoraExtraListView(ListView):
     model = RegistroHoraExtra
     template_name = 'hora_extra_list.html'
@@ -76,5 +75,35 @@ class HoraExtraCreateView(CreateView):
 
 class UtilizouHoraExtra(View):
     def post(self, *args, **kwargs):
-        response = json.dumps({'mensagem': 'Requisição executada'})
+        registro_hora_extra = RegistroHoraExtra.objects.get(id=kwargs['pk'])
+        registro_hora_extra.utilizada = True
+        registro_hora_extra.save()
+
+        funcionario = self.request.user.funcionario
+
+
+        response = json.dumps(
+            {'mensagem': 'Hora extra Marcada como Usada',
+             'horas': float(funcionario.total_hora_extra)
+             }
+            )
+
         return HttpResponse(response, content_type='application/json')
+
+
+class DesmarcouHoraExtra(View):
+    def post(self, *args, **kwargs):
+        registro_hora_extra = RegistroHoraExtra.objects.get(id=kwargs['pk'])
+        registro_hora_extra.utilizada = False
+        registro_hora_extra.save()
+
+        funcionario = self.request.user.funcionario
+
+        response = json.dumps(
+            {'mensagem': 'Hora Extra Desmarcada como Usada',
+             'horas': float(funcionario.total_hora_extra)
+             }
+            )
+
+        return HttpResponse(response, content_type='application/json')
+        

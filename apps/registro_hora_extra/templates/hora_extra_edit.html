@@ -8,14 +8,22 @@
         {% csrf_token %}
         {{ form|bootstrap }}
         <button type="submit" class="btn btn-success">Salvar</button>
-        <br>
+        <button onclick="utilizouHoraExtra({{ object.id }})" class="btn btn-info" type="button">
+            Marcar Hora Utilizada
+        </button>
+        <button onclick="desmarcarHoraExtra({{ object.id }})" class="btn btn-danger" type="button"> 
+             Desmarcar Hora Utilizada 
+        </button>
     </form>
     <br>
-
-    <button onclick="testejs()">testar</button>
-    <button onclick="utilizouHoraExtra({{ object.id }})" class="btn btn-info">Marcar Hora Utilizada</button>
-
+    {% if object.funcionario.hora_utilizada %}
+        <p style="color: darkgreen; font-weight: bolder;">Hora marcada como utilizada</p>
+    {% else %}
+        <p style="color :darkblue; font-weight: bolder;">Hora Extra não utilizada</p>
+    {% endif %}
     <p id="mensagem"></p>
+    <p>Total de horas sobrando</p>
+    <h4 id="horas_utilizadas"> {{ object.funcionario.total_hora_extra }}</h4>
 {% endblock %}
 
 {% block static %}
