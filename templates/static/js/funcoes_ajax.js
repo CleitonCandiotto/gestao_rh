@@ -1,15 +1,15 @@
 function utilizouHoraExtra(id){
     console.log(id);
-    token = document.getElementsByName("csrfmiddlewaretoken")[0];
+    token = document.getElementsByName("csrfmiddlewaretoken")[0].value;
 
     $.ajax({
         type:'POST',
-        url:'/horas-extras//utilizou-hora-extra/' + id + '/',
+        url:'/horas-extras/utilizou-hora-extra/' + id + '/',
         data: {
             csrfmiddlewaretoken: token
         },
         success: function(result) {
-            $("#mensagem").text('foi');
+            $("#mensagem").text('hora extra marcada como utilizada');
         }
 
     });
@@ -17,6 +17,5 @@ function utilizouHoraExtra(id){
 }
 
 function testejs(){
-    console.log('teste');
     alert('teste.logs');
 }
