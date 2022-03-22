@@ -32,7 +32,7 @@
             <ul>
                 <a href="{% url 'edit_hora_extra' registro.id %}">
                     <li >
-                        {{ registro.motivo }} | horas {{registro.horas}} - Horas já utilizada
+                        {{ registro.motivo }} | horas {{registro.horas}}
                     </li>
                 </a>
             </ul>
@@ -40,5 +40,4 @@
     {% endfor %}
     
     <h5>Total Hora Extra: {{ object.total_hora_extra }}</h5>
-
 {% endblock %}

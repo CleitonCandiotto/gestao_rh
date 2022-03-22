@@ -24,6 +24,9 @@
     <p id="mensagem"></p>
     <p>Total de horas sobrando</p>
     <h4 id="horas_utilizadas"> {{ object.funcionario.total_hora_extra }}</h4>
+
+
+    <a href="{% url 'edit_funcionario' object.funcionario.id %}"><button>Voltar</button></a>
 {% endblock %}
 
 {% block static %}
