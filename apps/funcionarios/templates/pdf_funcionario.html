@@ -6,6 +6,12 @@
     <br>
     <h1>Funcionario: {{ funcionario.nome }}</h1>
     <h2>Empresa: {{ funcionario.empresa }}</h2>
+    <h4>Departamento</h4>
+    {% for departamento in funcionario.departamentos_set.all %}
+        <ul>
+            <li>{{ departamento }}</li>
+        </ul>
+    {% endfor %}
     <h4>Documentos</h4>
     {% for documento in funcionario.documento_set.all %}
         <ul>

@@ -50,7 +50,6 @@ class FuncionarioCreateView(CreateView):
         return super(FuncionarioCreateView, self).form_valid(form)
 
 
-
 def render_pdf_view(request, *args, **kwargs):
     template_path = 'pdf_funcionario.html'
     funcionario = Funcionario.objects.get(id=kwargs['pk'])
