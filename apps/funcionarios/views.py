@@ -1,4 +1,6 @@
 from django.urls import reverse_lazy
+from django.http import HttpResponse
+from django.views import View
 from django.views.generic.list import ListView
 from django.views.generic.edit import UpdateView, DeleteView, CreateView
 from .models import Funcionario
@@ -48,3 +50,22 @@ class FuncionarioCreateView(CreateView):
         return super(FuncionarioCreateView, self).form_valid(form)
 
 
+
+def render_pdf_view(request, *args, **kwargs):
+    template_path = 'pdf_funcionario.html'
+    funcionario = Funcionario.objects.get(id=kwargs['pk'])
+    context = {'funcionario': funcionario}
+    # Create a Django response object, and specify content_type as pdf
+    response = HttpResponse(content_type='application/pdf')
+    response['Content-Disposition'] = 'filename="funcionario.pdf"'
+    # find the template and render it.
+    template = get_template(template_path)
+    html = template.render(context)
+
+    # create a pdf
+    pisa_status = pisa.CreatePDF(
+    html, dest=response)
+    # if error then show some funy view
+    if pisa_status.err:
+        return HttpResponse('We had some errors <pre>' + html + '</pre>')
+    return response

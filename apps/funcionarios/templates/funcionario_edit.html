@@ -40,4 +40,6 @@
     {% endfor %}
     
     <h5>Total Hora Extra: {{ object.total_hora_extra }}</h5>
+
+    <a href="{% url 'pdf_relatorio' object.id %}" class="btn btn-info" target="_blank">Gerar Relatorio PDF</a>
 {% endblock %}

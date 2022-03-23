@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load bootstrap %}
+
+
+{% block main %} 
+    <br>
+    <h1>Funcionario: {{ funcionario.nome }}</h1>
+    <h2>Empresa: {{ funcionario.empresa }}</h2>
+    <h4>Documentos</h4>
+    {% for documento in funcionario.documento_set.all %}
+        <ul>
+            <li>{{ documento }}</li> 
+        </ul>
+    {% endfor %}
+    <br>
+    <br>
+    <h4>Registro Hora Extra</h4>
+    {% for registro in funcionario.registrohoraextra_set.all %}
+        {% if registro.utilizada == True %}
+            <ul>
+                <li style="color: darkgreen; font-weight: bolder;">
+                    {{ registro.motivo }} | horas {{registro.horas}} - Horas já utilizada
+                </li>
+            </ul>
+        {% else %}    
+            <ul>
+                <li >
+                    {{ registro.motivo }} | horas {{registro.horas}}
+                </li>
+            </ul>
+        {% endif %}
+    {% endfor %}
+    
+    <h5>Total Hora Extra: {{ funcionario.total_hora_extra }}</h5>
+
+{% endblock %}

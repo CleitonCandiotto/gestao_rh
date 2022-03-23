@@ -6,7 +6,7 @@ from .views import (
     HoraExtraCreateView, 
     HoraExtraBaseEditView,
     UtilizouHoraExtra,
-    DesmarcouHoraExtra   
+    DesmarcouHoraExtra,  
 )
 
 
