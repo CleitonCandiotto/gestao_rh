@@ -12,5 +12,7 @@
     {% if not object_list %}
         <p>Não existem registros de hora extra de banco de dados</p>
     {% endif %}
-        <a href="{% url 'create_hora_extra' %}" class="btn btn-info" >Novo</a>
-    {% endblock %}
+    <br>
+    <a href="{% url 'create_hora_extra' %}" class="btn btn-info" >Novo</a>
+    <a href="{% url 'exportar_csv' %}" class="btn btn-info" >Exportar csv</a>
+{% endblock %}
