@@ -4,6 +4,10 @@ from django.views.generic.edit import UpdateView, DeleteView, CreateView
 from .models import Funcionario
 from django.contrib.auth.models import User
 
+#lib pdf
+from django.template.loader import get_template
+import xhtml2pdf.pisa as pisa
+
 
 
 class FuncionariosListView(ListView):
@@ -42,3 +46,5 @@ class FuncionarioCreateView(CreateView):
         funcionario.user = User.objects.create(username=username)
         funcionario.save()
         return super(FuncionarioCreateView, self).form_valid(form)
+
+
