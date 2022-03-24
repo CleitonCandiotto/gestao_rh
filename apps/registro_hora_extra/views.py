@@ -159,6 +159,7 @@ class ExportarExcel(View):
             ws.write(row_num, 3, registro.horas)
             ws.write(row_num, 4, registro.funcionario.total_hora_extra)
             row_num += 1
+        
 
         wb.save(response) 
         return response   
