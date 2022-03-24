@@ -20,10 +20,12 @@ from django.conf.urls.static import static
 
 from rest_framework import routers
 from core import views
+from apps.funcionarios.api.views import FuncionarioViewSet
 
 router = routers.DefaultRouter()
 router.register(r'users', views.UserViewSet)
 router.register(r'groups', views.GroupViewSet)
+router.register(r'api/funcionarios', FuncionarioViewSet)
 
 
 urlpatterns = [
