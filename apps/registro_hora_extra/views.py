@@ -154,10 +154,10 @@ class ExportarExcel(View):
         row_num = 1
         for registro in registros:
             ws.write(row_num, 0, registro.id)
-            ws.write(row_num, 0, registro.funcionario.nome)
-            ws.write(row_num, 0, registro.motivo)
-            ws.write(row_num, 0, registro.horas)
-            ws.write(row_num, 0, registro.funcionario.total_hora_extra)
+            ws.write(row_num, 1, registro.funcionario.nome)
+            ws.write(row_num, 2, registro.motivo)
+            ws.write(row_num, 3, registro.horas)
+            ws.write(row_num, 4, registro.funcionario.total_hora_extra)
             row_num += 1
 
         wb.save(response) 
