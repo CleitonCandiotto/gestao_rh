@@ -37,7 +37,7 @@ class FuncionarioDeleteView(DeleteView):
 
 class FuncionarioCreateView(CreateView):
     model = Funcionario
-    fields = ['nome', 'departamentos']
+    fields = ['nome', 'departamentos', 'foto']
     template_name = 'funcionario_create.html'
 
 

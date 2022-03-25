@@ -4,6 +4,7 @@ from apps.departamentos.models import Departamento
 from apps.empresas.models import Empresa
 from django.urls import reverse
 from django.db.models import Sum
+from stdimage import StdImageField
 
 
 
@@ -12,6 +13,9 @@ class Funcionario(models.Model):
     user = models.OneToOneField(User, models.PROTECT)
     departamentos = models.ManyToManyField(Departamento) # um funcionario pode estar em vários departamentos
     empresa = models.ForeignKey(Empresa, on_delete=models.PROTECT, null=True, blank=True)
+    foto = StdImageField(upload_to='foto_perfil', variations= { 
+        'thumbnail' :  { "width" :  100 ,  "height" :  100 ,  "crop" :  True } 
+    })
     
 
     def __str__(self) :

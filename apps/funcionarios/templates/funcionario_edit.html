@@ -3,6 +3,7 @@
 
 
 {% block main %} 
+    <img src="{{ object.foto.thumbnail.url }}" alt="">
     <form method="post">
         {% csrf_token %}
         {{ form|bootstrap }}
