@@ -4,8 +4,8 @@
     List <br>
     {% for funcionario in object_list %}
         {{ funcionario }}
-        <a href="{% url 'edit_funcionario' funcionario.id %}"><button>Editar</button></a>
-        <a href="{% url 'delete_funcionario' funcionario.id %}"><button>Deletar</button></a>
+        <a href="{% url 'edit_funcionario' funcionario.id %}"><button class="btn btn-warning">Editar</button></a>
+        <a href="{% url 'delete_funcionario' funcionario.id %}"><button class="btn btn-danger">Deletar</button></a>
         <br><br>
     {% endfor %}
         <a href="{% url 'create_funcionario' %}" class="btn btn-info" >Novo</a>
