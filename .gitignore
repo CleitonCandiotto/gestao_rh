@@ -152,5 +152,5 @@ cython_debug/
 #.idea/
 
 #aws
-gestao_rh.pem
-gestao_rh_aws.pem
+
+gestao_rh_1.pem
