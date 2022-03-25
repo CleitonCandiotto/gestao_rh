@@ -127,11 +127,17 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 MEDIA_URL = '/media/'
+STATIC_ROOT = Path(BASE_DIR, 'static')
+MEDIA_ROOT = Path(BASE_DIR, 'media')
+STATICFILES_DIRS = [BASE_DIR/ 'staticfiles']
+
+'''
+STATIC_URL = 'static/'
+MEDIA_URL = '/media/'
 STATIC_ROOT = Path(BASE_DIR, 'staticfiles')
 MEDIA_ROOT = Path(BASE_DIR, 'media')
 STATICFILES_DIRS = [BASE_DIR, 'templates/static']
-
-
+'''
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
