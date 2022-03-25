@@ -1,7 +1,8 @@
 from .serializers import RegistroHoraExtraSerializer
 from apps.registro_hora_extra.models import RegistroHoraExtra
 from rest_framework import viewsets
-from rest_framework import permissions
+from rest_framework.permissions import IsAuthenticated
+from rest_framework.authentication import TokenAuthentication
 
 
 class RegistroHoraExtraViewSet(viewsets.ModelViewSet):
@@ -10,5 +11,6 @@ class RegistroHoraExtraViewSet(viewsets.ModelViewSet):
     """
     queryset = RegistroHoraExtra.objects.all()
     serializer_class = RegistroHoraExtraSerializer
-    permission_classes = [permissions.IsAuthenticated]
+    authentication_classes = (TokenAuthentication,)
+    permission_classes = (IsAuthenticated,)
 
