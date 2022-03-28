@@ -13,7 +13,7 @@ class Funcionario(models.Model):
     user = models.OneToOneField(User, models.PROTECT)
     departamentos = models.ManyToManyField(Departamento) # um funcionario pode estar em vários departamentos
     empresa = models.ForeignKey(Empresa, on_delete=models.PROTECT, null=True, blank=True)
-    foto = StdImageField(upload_to='foto_perfil', variations= { 
+    foto = StdImageField(upload_to='foto_perfil', blank=True, variations= { 
         'thumbnail' :  { "width" :  100 ,  "height" :  100 ,  "crop" :  True } 
     })
     
