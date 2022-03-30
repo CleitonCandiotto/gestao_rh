@@ -26,8 +26,10 @@ SECRET_KEY = 'django-insecure-#p^wc92!^bhn()u^=tr-fdiljh&6_ag(+=*z)!qf&^f(vyd3cv
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    '3.88.153.41',
+    #'3.88.153.41',
+    #'localhost',
     ]
+    
 #ALLOWED_HOSTS = ['*']
 
 
@@ -46,6 +48,8 @@ INSTALLED_APPS = [
     'apps.departamentos',
     'apps.documentos',
     'apps.registro_hora_extra',
+    'apps.app_antiga',
+    'apps.app_novo',
     'core',
     'rest_framework',
     'rest_framework.authtoken',
@@ -91,6 +95,15 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
+    },
+    'antigo': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'dbantigo.sqlite3',
+    },
+
+    'novo': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'dbnovo.sqlite3',
     }
 }
 
@@ -131,9 +144,9 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
-STATIC_ROOT = Path(BASE_DIR, 'static')
+STATIC_ROOT = Path(BASE_DIR / 'static')
 MEDIA_ROOT = Path(BASE_DIR, 'media')
-STATICFILES_DIRS = [BASE_DIR/ 'staticfiles']
+STATICFILES_DIRS = [BASE_DIR / 'staticfiles']
 
 '''
 STATIC_URL = 'static/'
@@ -159,3 +172,6 @@ CELERY_ACCEPT_CONTENT = ['application/json']
 CELERY_RESULT_SERIALIZER = 'json'
 CELERY_TASK_SERIALIZER = 'json'
 CELERY_CACHE_BACKEND = 'django-cache'
+
+
+DATABASE_ROUTERS = ['gestao_rh.dbRoutes.DbRoutes']
