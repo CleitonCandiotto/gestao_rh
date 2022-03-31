@@ -49,7 +49,6 @@ INSTALLED_APPS = [
     'apps.documentos',
     'apps.registro_hora_extra',
     'apps.app_antiga',
-    'apps.app_novo',
     'core',
     'rest_framework',
     'rest_framework.authtoken',
@@ -99,11 +98,6 @@ DATABASES = {
     'antigo': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'dbantigo.sqlite3',
-    },
-
-    'novo': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'dbnovo.sqlite3',
     }
 }
 

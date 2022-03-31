@@ -61,8 +61,7 @@ local_settings.py
 db.sqlite3
 db.sqlite3-journal
 
-dbantigo.sqlite3
-dbnovo.sqlite3
+
 
 # Flask stuff:
 instance/
@@ -157,3 +156,5 @@ cython_debug/
 #aws
 
 gestao_rh_1.pem
+
+dbantigo.sqlite3
