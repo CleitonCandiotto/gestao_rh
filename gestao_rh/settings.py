@@ -90,16 +90,7 @@ WSGI_APPLICATION = 'gestao_rh.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    },
-    'antigo': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'dbantigo.sqlite3',
-    }
-}
+
 
 
 # Password validation
@@ -160,7 +151,6 @@ LOGIN_REDIRECT_URL = 'home'
 
 LOGOUT_REDIRECT_URL = 'login'
 
-CELERY_BROKER_URL = 'redis://localhost:6379'
 CELERY_RESULT_BACKEND = 'django-db'
 CELERY_ACCEPT_CONTENT = ['application/json']
 CELERY_RESULT_SERIALIZER = 'json'
@@ -169,3 +159,6 @@ CELERY_CACHE_BACKEND = 'django-cache'
 
 
 DATABASE_ROUTERS = ['gestao_rh.dbRoutes.DbRoutes']
+
+
+from .local_settings import *
