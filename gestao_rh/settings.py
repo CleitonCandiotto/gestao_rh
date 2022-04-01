@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 from pathlib import Path
 
+from django.utils.translation import gettext_lazy as _
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -26,7 +28,7 @@ SECRET_KEY = 'django-insecure-#p^wc92!^bhn()u^=tr-fdiljh&6_ag(+=*z)!qf&^f(vyd3cv
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    '3.88.153.41',
+    #'3.88.153.41',
     #'localhost',
     ]
     
@@ -59,6 +61,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -79,6 +82,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.i18n',
             ],
         },
     },
@@ -115,7 +119,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
 
-LANGUAGE_CODE = 'pt-br'
+LANGUAGE_CODE = 'en'
 
 TIME_ZONE = 'America/Sao_Paulo'
 
@@ -123,15 +127,24 @@ USE_I18N = True
 
 USE_TZ = True
 
+LANGUAGES = (
+    ('pt', _('Portuges')),
+    ('en', _('English')),
+    ('es', _('Spanish')),
+)
+
+LOCALE_PATHS =[ 
+    Path(BASE_DIR, 'locale'),
+    ]
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
-STATIC_ROOT = Path(BASE_DIR / 'static')
+STATIC_ROOT = Path(BASE_DIR, 'staticiles')
 MEDIA_ROOT = Path(BASE_DIR, 'media')
-STATICFILES_DIRS = [BASE_DIR / 'staticfiles']
+STATICFILES_DIRS = [BASE_DIR, 'static']
 
 '''
 STATIC_URL = 'static/'

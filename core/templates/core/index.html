@@ -1,8 +1,10 @@
 {% extends 'base.html' %}
+{% load i18n %}
 
 {% block main %}
     <div class="row">
         <div class="col">
+            {% trans "One of the three columns" %}
             Olá {{ usuario.funcionario.nome }}
             <a href="{% url 'list_funcionarios' %}">Gerenciar Funcionarios</a>
             <a href="{% url 'list_departamentos' %}">Gerenciar Departamentos</a><br>
