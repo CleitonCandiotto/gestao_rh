@@ -16,6 +16,7 @@ class Funcionario(models.Model):
     foto = StdImageField(upload_to='foto_perfil', blank=True, variations= { 
         'thumbnail' :  { "width" :  100 ,  "height" :  100 ,  "crop" :  True } 
     })
+    de_ferias = models.BooleanField(default=False)
     
 
     def __str__(self) :

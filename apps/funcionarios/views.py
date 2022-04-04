@@ -24,7 +24,7 @@ class FuncionariosListView(ListView):
 
 class FuncionarioUpdateView(UpdateView):
     model = Funcionario
-    fields = ['nome', 'departamentos']
+    fields = ['nome', 'departamentos', 'foto', 'de_ferias']
     template_name = 'funcionario_edit.html'
 
 
@@ -37,7 +37,7 @@ class FuncionarioDeleteView(DeleteView):
 
 class FuncionarioCreateView(CreateView):
     model = Funcionario
-    fields = ['nome', 'departamentos', 'foto']
+    fields = ['nome', 'departamentos', 'foto', 'de_ferias']
     template_name = 'funcionario_create.html'
 
 
