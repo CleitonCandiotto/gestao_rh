@@ -17,13 +17,9 @@ router.register(r'api/funcionarios', FuncionarioViewSet)
 router.register(r'api/horas-extras', RegistroHoraExtraViewSet)
 
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-]
-
-
-urlpatterns = [
-    #path('admin/', admin.site.urls),
     path('', include('core.urls')),
     path('funcionarios/', include('apps.funcionarios.urls'), name='funcionarios'),
     path('empresas/', include('apps.empresas.urls'), name='empresas'),
